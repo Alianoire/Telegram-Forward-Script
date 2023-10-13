@@ -5,7 +5,7 @@ A simple script to automatically forward messages on Telegram, filtered accordin
 The requirements for using the script are as follows:
 * Python installed on your system;
 * Telethon library;
-* ID and Hash to work with Telehram's API.
+* ID and Hash to work with Telegram's API.
 
 Once Python is installed, use the following commands to install or upgrade library and pip to the latest version:
 ```shell
