@@ -6,7 +6,7 @@ api_id = your_id
 api_hash = "your_hash"
 
 # Chat list from which to retrieve messages to forward. Your ID must have the form: -id_number,
-# Write IDs without " ".
+# Write IDs without " ". You can retrieve the IDs via the url on Telegram Web or by using IDBot on Telegram itself.
 from_chats = [chat_id1, chat_id2, chat_id3]
 # Chat to forward to.
 to_chat = chat_id_to
