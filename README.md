@@ -1,2 +1,2 @@
 # Telegram-Forward-Script
-A simple script to automatically forward messages on Telegram. Developed in Python using the Telethon library.
+A simple script to automatically forward messages on Telegram, filtered according to their content. Developed in Python using the Telethon library.
