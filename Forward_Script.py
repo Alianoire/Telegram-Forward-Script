@@ -1,29 +1,33 @@
+# Import needed by Telethon
 from telethon import TelegramClient, events
 
-api_id = 8857035
-api_hash = "d6324f28355dffb7ca2cbb27d5d7cd53"
+# Personal ID and HASH required for interaction with your Telegram account. 
+api_id = your_id
+api_hash = "your_hash"
 
-# Lista chat da cui recuperare i messaggi da inoltrare.
-from_chats = [-1001201251271,-1001280296873, -1001692297563]
-# Chat a cui inoltrare.
-to_chat = -1001969696852
+# Chat list from which to retrieve messages to forward. Your ID must have the form: -id_number,
+# Write IDs without " ".
+from_chats = [chat_id1, chat_id2, chat_id3]
+# Chat to forward to.
+to_chat = chat_id_to
 
-# Istanza del Client.
+# Client Instance.
 client = TelegramClient('Sessione', api_id, api_hash)
 
-# Gestione evento. Quando arriva un nuovo messaggio al client (events.NewMessage), recupero l'id della chat in cui è arrivato,
-# se l'id è presente nella lista precedente, tramite metodo forward_messages inoltro il messaggio alla chat di destinazione.
+# Event handling. When a new message arrives at the client (events.NewMessage), I retrieve the id of the chat where it arrived,
+# if the id is in the previous list  and the message contains one of the following words or phrase, via forward_messages method 
+# I forward the message to the destination chat.
 @client.on(events.NewMessage)
 async def my_event_handler(event):
     chat_id = event.chat_id
     if chat_id in from_chats:
-        if ('acquisto'       in event.message.text.lower() 
-            or 'only buy'    in event.message.text.lower() 
-            or 'solo ordine' in event.message.text.lower() 
-            or 'commissione' in event.message.text.lower() 
-            or 'regalo'      in event.message.text.lower()):
-            await client.forward_messages(to_chat, event.message)
+        if ('astring1'    in event.message.text.lower() 
+             or 'string2' in event.message.text.lower() 
+             or 'string3' in event.message.text.lower() 
+             or 'string4' in event.message.text.lower() 
+             or 'string5' in event.message.text.lower()):
+             await client.forward_messages(to_chat, event.message)
 
-# Starto il client e lo runno finchè non si ha disconnessione.
+# Start the client and run it until there is no disconnection.
 client.start()
 client.run_until_disconnected()
